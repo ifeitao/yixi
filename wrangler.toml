@@ -2,6 +2,11 @@ name = "yixi"
 main = "src/index.ts"
 compatibility_date = "2026-07-01"
 
+# Custom domain on the Worker itself — this is the address humans use.
+routes = [
+  { pattern = "yixi.secevo.xyz", custom_domain = true }
+]
+
 # One trigger, two daily ticks dispatched by event.scheduledTime (UTC):
 #   04:00 — noon Shanghai; trim stale sessions, expired logins and rate windows.
 #   16:00 — midnight Shanghai; snapshot yesterday's goal_days.
@@ -44,7 +49,7 @@ enabled = true
 [[d1_databases]]
 binding = "DB"
 database_name = "yixi"
-database_id = "64215db6-0a05-4ae9-a583-19c8790bef06"
+database_id = "4a8fe258-0f89-4dc1-b2ad-c2fd2a61b14a"
 
 # Smart Placement: run near the D1 database (APAC) instead of near the
 # visitor. Mainland-China traffic lands on a US-west colo while D1 sits in
